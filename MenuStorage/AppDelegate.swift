@@ -23,13 +23,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func updateMenu() {
         // Get the current free disk space
-        let freeDiskSpace = getFreeSize()
+        let freeDiskSpace = convertBytesToGb(getFreeSize()!)
+        
+        // Get total space
+        let totalDiskSpace = convertBytesToGb(getTotalSize()!)
         
         // Set the title that the user will see
-        statusItem.title = "Free Disk Space: \(freeDiskSpace!)"
+        statusItem.title = "Free Disk Space: \(freeDiskSpace!)GB / \(totalDiskSpace!)GB"
     }
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        
         // Add the menu to our status bar item
         statusItem.menu = statusMenu
         
@@ -39,30 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Create a timer to call the update function
         _ = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(self.updateMenu), userInfo: nil, repeats: true)
     }
-    
-    func getFreeSize() -> Int64? {
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        if let dictionary = try? NSFileManager.defaultManager().attributesOfFileSystemForPath(paths.last!) {
-            if let freeSize = dictionary[NSFileSystemFreeSize] as? NSNumber {
-                return freeSize.longLongValue
-            }
-        }else{
-            print("Error Obtaining System Memory Info:")
-        }
-        return nil
-    }
 
-    func getTotalSize() -> Int64?{
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        if let dictionary = try? NSFileManager.defaultManager().attributesOfFileSystemForPath(paths.last!) {
-            if let freeSize = dictionary[NSFileSystemSize] as? NSNumber {
-                return freeSize.longLongValue
-            }
-        }else{
-            print("Error Obtaining System Memory Info:")
-        }
-        return nil
-    }
 
 }
 
