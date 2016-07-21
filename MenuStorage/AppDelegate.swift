@@ -18,7 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func quitApplication(sender: NSMenuItem) {
         NSApplication.sharedApplication().terminate(self)
     }
-
+    
+    @IBOutlet weak var launchItem: NSMenuItem!
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var window: NSWindow!
     
@@ -31,7 +32,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func launchAtLogin(sender: NSMenuItem) {
-        toggleLaunchAtStartup()
+        if toggleLaunchAtStartup() {
+            launchItem.title = "Remove from Login"
+        } else {
+            launchItem.title = "Start at Login"
+        }
     }
     
     
@@ -67,6 +72,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // Create a timer to call the update function
         updateTimer(updateFrequency)
+        
+        // Check if item is on startup already
+        if checkStartupItem() {
+            launchItem.title = "Remove from Login"
+        } else {
+            launchItem.title = "Start at Login"
+        }
     }
 
 

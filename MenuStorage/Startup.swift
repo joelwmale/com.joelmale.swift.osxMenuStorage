@@ -12,6 +12,37 @@ func applicationIsInStartUpItems() -> Bool {
     return (itemReferencesInLoginItems().existingReference != nil)
 }
 
+func checkStartupItem() -> Bool {
+    let itemUrl : UnsafeMutablePointer<Unmanaged<CFURL>?> = UnsafeMutablePointer<Unmanaged<CFURL>?>.alloc(1)
+    if let appUrl : NSURL = NSURL.fileURLWithPath(NSBundle.mainBundle().bundlePath) {
+        let loginItemsRef = LSSharedFileListCreate(
+            nil,
+            kLSSharedFileListSessionLoginItems.takeRetainedValue(),
+            nil
+            ).takeRetainedValue() as LSSharedFileListRef?
+        if loginItemsRef != nil {
+            let loginItems: NSArray = LSSharedFileListCopySnapshot(loginItemsRef, nil).takeRetainedValue() as NSArray
+            print("There are \(loginItems.count) login items")
+            for i in 0 ..< loginItems.count {
+                let currentItemRef: LSSharedFileListItemRef = loginItems.objectAtIndex(i) as! LSSharedFileListItemRef
+                if LSSharedFileListItemResolve(currentItemRef, 0, itemUrl, nil) == noErr {
+                    if let urlRef: NSURL =  itemUrl.memory?.takeRetainedValue() {
+                        //print("URL Ref: \(urlRef.lastPathComponent)")
+                        if urlRef.isEqual(appUrl) {
+                            return true
+                        }
+                    }
+                } else {
+                    return false
+                }
+            }
+            //The application was not found in the startup list
+            return false
+        }
+    }
+    return false
+}
+
 func itemReferencesInLoginItems() -> (existingReference: LSSharedFileListItemRef?, lastReference: LSSharedFileListItemRef?) {
     let itemUrl : UnsafeMutablePointer<Unmanaged<CFURL>?> = UnsafeMutablePointer<Unmanaged<CFURL>?>.alloc(1)
     if let appUrl : NSURL = NSURL.fileURLWithPath(NSBundle.mainBundle().bundlePath) {
@@ -30,6 +61,7 @@ func itemReferencesInLoginItems() -> (existingReference: LSSharedFileListItemRef
                     if let urlRef: NSURL =  itemUrl.memory?.takeRetainedValue() {
                         //print("URL Ref: \(urlRef.lastPathComponent)")
                         if urlRef.isEqual(appUrl) {
+                            print("URL Ref: \(urlRef.lastPathComponent)")
                             return (currentItemRef, lastItemRef)
                         }
                     }
@@ -44,7 +76,7 @@ func itemReferencesInLoginItems() -> (existingReference: LSSharedFileListItemRef
     return (nil, nil)
 }
 
-func toggleLaunchAtStartup() {
+func toggleLaunchAtStartup() -> Bool {
     let itemReferences = itemReferencesInLoginItems()
     let shouldBeToggled = (itemReferences.existingReference == nil)
     let loginItemsRef = LSSharedFileListCreate(
@@ -64,13 +96,14 @@ func toggleLaunchAtStartup() {
                     nil,
                     nil
                 )
-                print("Application was added to login items")
+                return true
             }
         } else {
             if let itemRef = itemReferences.existingReference {
                 LSSharedFileListItemRemove(loginItemsRef,itemRef);
-                print("Application was removed from login items")
+                return false
             }
         }
     }
+    return false
 }
