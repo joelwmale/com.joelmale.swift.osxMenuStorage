@@ -670,6 +670,25 @@
         </menu>
         <menu id="Bj0-fz-QdY">
             <items>
+                <menuItem title="Update Frequency" id="LUd-ms-j1B">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Update Frequency" id="bMt-BM-4rc">
+                        <items>
+                            <menuItem title="5 seconds" id="Xrv-PR-aDM">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="update5Seconds:" target="Voe-Tx-rLC" id="YGo-ne-cjW"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="20 seconds" id="6lf-Up-uoa">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="update20Seconds:" target="Voe-Tx-rLC" id="4Z7-6N-dGE"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="Quit" keyEquivalent="Q" id="3RA-qU-l8C">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
