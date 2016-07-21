@@ -12,6 +12,7 @@
 		5D797BB91D3F842800096B78 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D797BB71D3F842800096B78 /* MainMenu.xib */; };
 		5D80DEA61D406AA00071D89B /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80DEA51D406AA00071D89B /* Core.swift */; };
 		5D80DEA81D406ACB0071D89B /* Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80DEA71D406ACB0071D89B /* Conversion.swift */; };
+		5D80DEAA1D40CB310071D89B /* Startup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80DEA91D40CB310071D89B /* Startup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		5D797BBA1D3F842800096B78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D80DEA51D406AA00071D89B /* Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		5D80DEA71D406ACB0071D89B /* Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conversion.swift; sourceTree = "<group>"; };
+		5D80DEA91D40CB310071D89B /* Startup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Startup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			children = (
 				5D80DEA51D406AA00071D89B /* Core.swift */,
 				5D80DEA71D406ACB0071D89B /* Conversion.swift */,
+				5D80DEA91D40CB310071D89B /* Startup.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				5D80DEA81D406ACB0071D89B /* Conversion.swift in Sources */,
 				5D80DEA61D406AA00071D89B /* Core.swift in Sources */,
 				5D797BB41D3F842800096B78 /* AppDelegate.swift in Sources */,
+				5D80DEAA1D40CB310071D89B /* Startup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

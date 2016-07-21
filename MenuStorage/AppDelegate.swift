@@ -12,8 +12,8 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     var updateTimer: NSTimer?
-    // Default
-    var updateFrequency : NSTimeInterval = 3.0;
+    // Default update frequency
+    var updateFrequency : NSTimeInterval = 30.0;
 
     @IBAction func quitApplication(sender: NSMenuItem) {
         NSApplication.sharedApplication().terminate(self)
@@ -22,13 +22,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var window: NSWindow!
     
-    @IBAction func update5Seconds(sender: NSMenuItem) {
-        updateTimer(5.0)
+    @IBAction func update30Seconds(sender: NSMenuItem) {
+        updateTimer(30.0)
     }
     
-    @IBAction func update20Seconds(sender: NSMenuItem) {
-        updateTimer(20.0)
+    @IBAction func update5Minutes(sender: NSMenuItem) {
+        updateTimer(300.0)
     }
+    
+    @IBAction func launchAtLogin(sender: NSMenuItem) {
+        toggleLaunchAtStartup()
+    }
+    
     
     // Get to the main status bar for the OS
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
@@ -41,10 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let totalDiskSpace = convertBytesToGb(getTotalSize()!)
         
         // Set the title that the user will see
-        //statusItem.title = "Free Disk Space: \(freeDiskSpace!)GB / \(totalDiskSpace!)GB"
-        statusItem.title = "My current update time is every \(updateFrequency) seconds"
-        
-        print("Updated menu")
+        statusItem.title = "Free Disk Space: \(freeDiskSpace!)GB / \(totalDiskSpace!)GB"
     }
     
     func updateTimer(time : NSTimeInterval) {
