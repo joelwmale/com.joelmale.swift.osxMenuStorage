@@ -696,10 +696,10 @@
                         <action selector="launchAtLogin:" target="Voe-Tx-rLC" id="EH6-So-Gba"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Preferences" id="rpO-Z2-IKZ">
+                <menuItem title="Preferences" id="7Nl-FK-1h1">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="showPreferences:" target="Voe-Tx-rLC" id="h9Q-CU-2f7"/>
+                        <action selector="orderFront:" target="xuQ-z4-Ym3" id="hxA-01-ExP"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Quit" keyEquivalent="Q" id="3RA-qU-l8C">
@@ -711,5 +711,46 @@
             </items>
             <point key="canvasLocation" x="298" y="232.5"/>
         </menu>
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="xuQ-z4-Ym3">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="163" y="199" width="284" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <view key="contentView" id="p9U-kc-yTO">
+                <rect key="frame" x="0.0" y="0.0" width="284" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cRT-L1-t3P">
+                        <rect key="frame" x="14" y="13" width="256" height="32"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZDR-0w-vwl">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="orderOut:" target="xuQ-z4-Ym3" id="cMe-YN-ldq"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gfM-QC-da8">
+                        <rect key="frame" x="14" y="36" width="256" height="32"/>
+                        <buttonCell key="cell" type="push" title="Save Settings" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Gp0-s4-qJH">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gfM-QC-da8" firstAttribute="leading" secondItem="p9U-kc-yTO" secondAttribute="leading" constant="20" symbolic="YES" id="0db-Qx-EKd"/>
+                    <constraint firstItem="gfM-QC-da8" firstAttribute="trailing" secondItem="cRT-L1-t3P" secondAttribute="trailing" id="0e7-Mx-Wpq"/>
+                    <constraint firstAttribute="trailing" secondItem="gfM-QC-da8" secondAttribute="trailing" constant="20" symbolic="YES" id="IdG-VP-ex4"/>
+                    <constraint firstItem="cRT-L1-t3P" firstAttribute="top" secondItem="gfM-QC-da8" secondAttribute="bottom" constant="2" id="Zd5-rp-1e7"/>
+                    <constraint firstAttribute="bottom" secondItem="cRT-L1-t3P" secondAttribute="bottom" constant="20" symbolic="YES" id="ouq-OZ-hs3"/>
+                    <constraint firstItem="gfM-QC-da8" firstAttribute="leading" secondItem="cRT-L1-t3P" secondAttribute="leading" id="q8N-Ki-cLD"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="585" y="345"/>
+        </window>
     </objects>
 </document>

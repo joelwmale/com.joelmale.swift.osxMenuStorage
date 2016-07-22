@@ -14,9 +14,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var updateTimer: NSTimer?
     // Default update frequency
     var updateFrequency : NSTimeInterval = 30.0;
-    
-    // Preferences window
-    lazy var windowController = windowNibName: "preferencesWindow"
 
     @IBAction func quitApplication(sender: NSMenuItem) {
         NSApplication.sharedApplication().terminate(self)
@@ -25,10 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var launchItem: NSMenuItem!
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var window: NSWindow!
-    
-    @IBAction func showPreferences(sender: NSMenuItem) {
-        preferencesWindow.showWindow
-    }
     
     @IBAction func update30Seconds(sender: NSMenuItem) {
         updateTimer(30.0)
