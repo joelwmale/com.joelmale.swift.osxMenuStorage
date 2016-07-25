@@ -734,7 +734,7 @@ Gw
                             <action selector="orderOut:" target="xuQ-z4-Ym3" id="cMe-YN-ldq"/>
                         </connections>
                     </button>
-                    <textField identifier="updateFreqLabel" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x9z-uv-dhP">
+                    <textField identifier="updateFreqLabel" horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x9z-uv-dhP">
                         <rect key="frame" x="18" y="244" width="131" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Update Frequency:" id="7qu-88-83M">
                             <font key="font" metaFont="system"/>
@@ -742,21 +742,6 @@ Gw
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="exW-Uj-8cR">
-                        <rect key="frame" x="155" y="239" width="35" height="22"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="35" id="tl6-Fr-i7p"/>
-                        </constraints>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="0" drawsBackground="YES" id="Qrk-2L-gj8">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0FP-4m-U7M">
-                        <rect key="frame" x="189" y="236" width="19" height="27"/>
-                        <stepperCell key="cell" continuous="YES" alignment="left" minValue="-2" maxValue="100" doubleValue="1" id="C1s-Gm-uaI"/>
-                    </stepper>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gfM-QC-da8">
                         <rect key="frame" x="14" y="36" width="256" height="32"/>
                         <buttonCell key="cell" type="push" title="Save Settings" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Gp0-s4-qJH">
@@ -767,7 +752,7 @@ Gw
                             <action selector="saveChanges:" target="Voe-Tx-rLC" id="aIF-Q7-Du6"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AfM-hs-Ds4">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AfM-hs-Ds4">
                         <rect key="frame" x="211" y="239" width="37" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="33" id="HBh-CR-sNH"/>
@@ -778,13 +763,22 @@ Gw
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="exW-Uj-8cR">
+                        <rect key="frame" x="155" y="239" width="50" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="tl6-Fr-i7p"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="0" drawsBackground="YES" id="Qrk-2L-gj8">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstItem="gfM-QC-da8" firstAttribute="trailing" secondItem="cRT-L1-t3P" secondAttribute="trailing" id="0e7-Mx-Wpq"/>
                     <constraint firstItem="x9z-uv-dhP" firstAttribute="leading" secondItem="gfM-QC-da8" secondAttribute="leading" id="4vu-jv-mru"/>
                     <constraint firstItem="x9z-uv-dhP" firstAttribute="top" secondItem="exW-Uj-8cR" secondAttribute="top" id="6G0-R2-UD7"/>
-                    <constraint firstItem="AfM-hs-Ds4" firstAttribute="leading" secondItem="0FP-4m-U7M" secondAttribute="trailing" constant="8" symbolic="YES" id="HYe-Dg-vns"/>
-                    <constraint firstItem="exW-Uj-8cR" firstAttribute="top" secondItem="0FP-4m-U7M" secondAttribute="top" id="K4U-Qj-z8f"/>
                     <constraint firstAttribute="bottom" secondItem="cRT-L1-t3P" secondAttribute="bottom" constant="20" symbolic="YES" id="OPg-I7-u9I"/>
                     <constraint firstItem="exW-Uj-8cR" firstAttribute="leading" secondItem="x9z-uv-dhP" secondAttribute="trailing" constant="8" symbolic="YES" id="X8p-aW-X7X"/>
                     <constraint firstItem="cRT-L1-t3P" firstAttribute="top" secondItem="gfM-QC-da8" secondAttribute="bottom" constant="2" id="Zd5-rp-1e7"/>
@@ -793,8 +787,6 @@ Gw
                     <constraint firstAttribute="trailing" secondItem="AfM-hs-Ds4" secondAttribute="trailing" constant="32" id="mTu-GC-l85"/>
                     <constraint firstItem="gfM-QC-da8" firstAttribute="leading" secondItem="cRT-L1-t3P" secondAttribute="leading" id="q8N-Ki-cLD"/>
                     <constraint firstItem="x9z-uv-dhP" firstAttribute="leading" secondItem="p9U-kc-yTO" secondAttribute="leading" constant="20" symbolic="YES" id="swe-Gi-l8j"/>
-                    <constraint firstItem="0FP-4m-U7M" firstAttribute="bottom" secondItem="AfM-hs-Ds4" secondAttribute="bottom" id="tL9-3F-OCS"/>
-                    <constraint firstItem="0FP-4m-U7M" firstAttribute="leading" secondItem="exW-Uj-8cR" secondAttribute="trailing" constant="8" symbolic="YES" id="u5l-lH-WWA"/>
                 </constraints>
             </view>
             <point key="canvasLocation" x="585" y="345"/>

@@ -38,6 +38,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let stringFrequency = updateFreqInput.stringValue
         let newFrequency = (stringFrequency as NSString).doubleValue
         
+        print("New frequency is \(newFrequency)")
+        
         setNewUpdateFrequency(newFrequency)
     }
     
@@ -97,8 +99,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Convert NSTimeInterval to an Int
         let intFrequency = Int(updateFrequency)
         
+        print(intFrequency)
+        
         // Convert seconds to minutes
-        let minFrequency = intFrequency / 60
+        var minFrequency = intFrequency / 60
+        if (minFrequency < 1) {
+            minFrequency = intFrequency
+        }
         updateFreqInput.stringValue = "\(minFrequency)"
     }
 
