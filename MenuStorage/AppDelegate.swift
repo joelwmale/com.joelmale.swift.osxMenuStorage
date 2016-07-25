@@ -22,14 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var launchItem: NSMenuItem!
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var window: NSWindow!
-    
-    @IBAction func update30Seconds(sender: NSMenuItem) {
-        updateTimer(30.0)
-    }
-    
-    @IBAction func update5Minutes(sender: NSMenuItem) {
-        updateTimer(300.0)
-    }
+    @IBOutlet weak var updateFreqInput: NSTextField!
     
     @IBAction func launchAtLogin(sender: NSMenuItem) {
         if toggleLaunchAtStartup() {
@@ -39,6 +32,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    
+    @IBAction func saveChanges(sender: NSButton) {
+        // Save the new updated time
+        let stringFrequency = updateFreqInput.stringValue
+        let newFrequency = (stringFrequency as NSString).doubleValue
+        
+        setNewUpdateFrequency(newFrequency)
+    }
     
     // Get to the main status bar for the OS
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
@@ -70,6 +71,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Update the menu
         updateMenu()
         
+        // Get stored update frequency
+        if getUpdateFrequency() == nil {
+            updateFrequency = 60.0
+        } else {
+            updateFrequency = getUpdateFrequency()!
+        }
+        
+        
         // Create a timer to call the update function
         updateTimer(updateFrequency)
         
@@ -79,8 +88,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             launchItem.title = "Start at Login"
         }
+        
+        //var userSettings = settings(updateFrequency: updateFrequency)
+        setPreferencesUI()
+    }
+    
+    func setPreferencesUI() {
+        // Convert NSTimeInterval to an Int
+        let intFrequency = Int(updateFrequency)
+        
+        // Convert seconds to minutes
+        let minFrequency = intFrequency / 60
+        updateFreqInput.stringValue = "\(minFrequency)"
     }
 
 
 }
-

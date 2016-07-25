@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct settings {
+    var updateFrequency : NSTimeInterval
+}
+
 func getFreeSize() -> Int64? {
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
     if let dictionary = try? NSFileManager.defaultManager().attributesOfFileSystemForPath(paths.last!) {
@@ -29,5 +33,23 @@ func getTotalSize() -> Int64?{
     }else{
         print("Error Obtaining System Memory Info:")
     }
+    return nil
+}
+
+func setNewUpdateFrequency(newTime : NSTimeInterval) {
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    defaults.setValue(newTime, forKey: updateFrequencyKey)
+    
+    defaults.synchronize()
+}
+
+func getUpdateFrequency() -> NSTimeInterval? {
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    if let updateFrequency = defaults.stringForKey(updateFrequencyKey) {
+        return (updateFrequency as NSString).doubleValue
+    }
+    
     return nil
 }
