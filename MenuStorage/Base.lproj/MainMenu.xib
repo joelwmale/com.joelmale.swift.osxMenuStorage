@@ -15,6 +15,7 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="MenuStorage" customModuleProvider="target">
             <connections>
                 <outlet property="launchItem" destination="wtK-Qj-cs3" id="9P4-fD-LuP"/>
+                <outlet property="minsOrSeconds" destination="AfM-hs-Ds4" id="cse-Ca-pFh"/>
                 <outlet property="quitApplication" destination="3RA-qU-l8C" id="CPv-fP-X8J"/>
                 <outlet property="statusMenu" destination="Bj0-fz-QdY" id="aZh-tC-Ago"/>
                 <outlet property="updateFreqInput" destination="exW-Uj-8cR" id="Mu0-WP-eJv"/>
@@ -752,10 +753,10 @@ Gw
                             <action selector="saveChanges:" target="Voe-Tx-rLC" id="aIF-Q7-Du6"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AfM-hs-Ds4">
-                        <rect key="frame" x="211" y="239" width="37" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AfM-hs-Ds4">
+                        <rect key="frame" x="201" y="239" width="65" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="33" id="HBh-CR-sNH"/>
+                            <constraint firstAttribute="width" constant="61" id="sV2-XG-1YG"/>
                         </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="mins" id="CcD-ZZ-MkW">
                             <font key="font" metaFont="system"/>
@@ -764,7 +765,7 @@ Gw
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="exW-Uj-8cR">
-                        <rect key="frame" x="155" y="239" width="50" height="22"/>
+                        <rect key="frame" x="145" y="239" width="50" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="35" id="tl6-Fr-i7p"/>
                         </constraints>
@@ -779,12 +780,14 @@ Gw
                     <constraint firstItem="gfM-QC-da8" firstAttribute="trailing" secondItem="cRT-L1-t3P" secondAttribute="trailing" id="0e7-Mx-Wpq"/>
                     <constraint firstItem="x9z-uv-dhP" firstAttribute="leading" secondItem="gfM-QC-da8" secondAttribute="leading" id="4vu-jv-mru"/>
                     <constraint firstItem="x9z-uv-dhP" firstAttribute="top" secondItem="exW-Uj-8cR" secondAttribute="top" id="6G0-R2-UD7"/>
+                    <constraint firstItem="AfM-hs-Ds4" firstAttribute="trailing" secondItem="gfM-QC-da8" secondAttribute="trailing" id="I5g-TD-Mhy"/>
+                    <constraint firstItem="exW-Uj-8cR" firstAttribute="bottom" secondItem="AfM-hs-Ds4" secondAttribute="bottom" id="L1j-X5-eeS"/>
                     <constraint firstAttribute="bottom" secondItem="cRT-L1-t3P" secondAttribute="bottom" constant="20" symbolic="YES" id="OPg-I7-u9I"/>
+                    <constraint firstItem="AfM-hs-Ds4" firstAttribute="leading" secondItem="exW-Uj-8cR" secondAttribute="trailing" constant="8" symbolic="YES" id="OhH-aY-JGS"/>
                     <constraint firstItem="exW-Uj-8cR" firstAttribute="leading" secondItem="x9z-uv-dhP" secondAttribute="trailing" constant="8" symbolic="YES" id="X8p-aW-X7X"/>
                     <constraint firstItem="cRT-L1-t3P" firstAttribute="top" secondItem="gfM-QC-da8" secondAttribute="bottom" constant="2" id="Zd5-rp-1e7"/>
                     <constraint firstItem="x9z-uv-dhP" firstAttribute="top" secondItem="p9U-kc-yTO" secondAttribute="top" constant="9" id="dEN-K6-S8Z"/>
                     <constraint firstAttribute="trailing" secondItem="gfM-QC-da8" secondAttribute="trailing" constant="20" symbolic="YES" id="ehi-9p-7hy"/>
-                    <constraint firstAttribute="trailing" secondItem="AfM-hs-Ds4" secondAttribute="trailing" constant="32" id="mTu-GC-l85"/>
                     <constraint firstItem="gfM-QC-da8" firstAttribute="leading" secondItem="cRT-L1-t3P" secondAttribute="leading" id="q8N-Ki-cLD"/>
                     <constraint firstItem="x9z-uv-dhP" firstAttribute="leading" secondItem="p9U-kc-yTO" secondAttribute="leading" constant="20" symbolic="YES" id="swe-Gi-l8j"/>
                 </constraints>

@@ -23,6 +23,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var updateFreqInput: NSTextField!
+    @IBOutlet weak var minsOrSeconds: NSTextField!
+    
     
     @IBAction func launchAtLogin(sender: NSMenuItem) {
         if toggleLaunchAtStartup() {
@@ -103,8 +105,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // Convert seconds to minutes
         var minFrequency = intFrequency / 60
+        minsOrSeconds.stringValue = "mins"
         if (minFrequency < 1) {
             minFrequency = intFrequency
+            minsOrSeconds.stringValue = "seconds"
         }
         updateFreqInput.stringValue = "\(minFrequency)"
     }
